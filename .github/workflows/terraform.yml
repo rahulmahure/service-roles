@@ -46,7 +46,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
 
-      # Apply Only After Merge to Main
+      # Apply Only After Merge to Main B
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
