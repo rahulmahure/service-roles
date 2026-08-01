@@ -21,16 +21,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Show OIDC Claims
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const id_token = await core.getIDToken("sts.amazonaws.com");
-            const payload = JSON.parse(
-              Buffer.from(id_token.split('.')[1], 'base64').toString()
-            );
-            console.log(JSON.stringify(payload, null, 2));
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
